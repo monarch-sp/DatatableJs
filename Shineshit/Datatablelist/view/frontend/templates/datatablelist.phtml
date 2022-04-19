@@ -1,0 +1,51 @@
+<?php
+/**@var Aureatelabs\ModuleName\ViewModel\Custom $viewModel*/
+$viewModel = $block->getData('view_model');
+?>
+<?php $productColl = $viewModel->getProductCollection();?>
+<table class="data-grid" id="example">
+    <thead>
+    <tr>
+        <th class="data-grid-th">NDS</th>
+        <th class="data-grid-th">Name</th>
+        <th class="data-grid-th">Manufacturer</th>
+        <th class="data-grid-th">Closest Expiration Date</th>
+        <th class="data-grid-th">Product Size</th>
+        <th class="data-grid-th">Price</th>
+        <th class="data-grid-th">Qty</th>
+        <th class="data-grid-th">Add to cart button</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php
+        $star =0;
+        foreach($productColl as $product):
+            $star++;
+        ?>
+        <tr id="<?php echo $star; ?>">
+            <td ><?php echo $product->getData('name'); ?></td>
+            <td ><?php echo $product->getData('sku'); ?></td>
+            <td ><?php echo $product->getData('price'); ?></td>
+            <td ><?php echo $product->getData('name'); ?></td>
+            <td ><?php echo $product->getData('skue'); ?></td>
+            <td ><?php echo $product->getData('price'); ?></td>
+            <td ><?php echo $product->getData('name'); ?></td>
+            <td >
+                <button id='login-btn'>Login</button>
+            </td>
+
+        </tr>
+    <?php
+        endforeach;
+    ?>
+    </tbody>
+</table>
+<script type="text/javascript">
+    require(['jquery','datatable'], function($) {
+    	var table = $('#example').DataTable();
+        $('#example tbody').on('click', "#login-btn", function() {
+            var row = $(this).parents('tr')[0];           
+            console.log(table.row(row).data().DT_RowId);
+        });
+    });
+</script>

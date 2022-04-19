@@ -1,0 +1,15 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+
+	<head>
+        <css src="Shineshit_Datatablelist/css/jquery.dataTables.min.css"  />
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Magento\Framework\View\Element\Template" name="datatablelist_index_index" template="Shineshit_Datatablelist::datatablelist.phtml">
+                <arguments>
+                 <argument name="view_model" xsi:type="object">Shineshit\Datatablelist\ViewModel\Custom</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
